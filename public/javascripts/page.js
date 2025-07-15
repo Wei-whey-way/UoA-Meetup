@@ -704,27 +704,6 @@ function addUser(vue, setProfileId) {
   };
 
 
-
-/* exported gapiLoaded */
-/* exported gisLoaded */
-/* exported handleAuthClick */
-/* exported handleSignoutClick */
-
-// TODO(developer): Set to client ID and API key from the Developer Console
-// const CLIENT_ID = '80995453411-gcpjlgvmb4o4a4oiotge2spqcn8co78r.apps.googleusercontent.com';
-// const API_KEY = 'AIzaSyC5nq5855pwZYwSMUuVQAvkmk7Q9msFlOM';
-
-// Discovery doc URL for APIs used by the quickstart
-// const DISCOVERY_DOC = 'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest';
-
-// Authorization scopes required by the API; multiple scopes can be
-// included, separated by spaces.
-// const SCOPES = 'https://www.googleapis.com/auth/calendar.readonly';
-
-// let tokenClient;
-// let gapiInited = false;
-// let gisInited = false;
-
 // document.getElementById('authorize_button').style.visibility = 'visible';
 
 /**

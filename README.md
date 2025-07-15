@@ -1,2 +1,41 @@
-# UOA Meetup
-Full-stack scheduling website designed for organizing meetings and events
+# UoA Meetup
+
+**UoA Meetup** is a full-stack scheduling website designed for organizing meetings and events. It enables people to collaborate, host events together, and manage their availability efficiently.
+
+## Features
+
+- Authentication: Login via local credentials or Google OAuth.
+- Event Management: Create events with names, descriptions, dates, times, and locations.
+- Guest & Host Management: Assign hosts, invite guests, and track RSVPs (yes/no).
+- Email Notifications: Send email confirmations to guests upon event creation or updates.
+- Availability Scheduling: Set availability time slots for more effective event coordination. 
+- User Profiles: Edit user profiles, including contact information and availability preferences.
+- Guest Filtering: View and invite users based on their type or category (e.g., department, interest).
+
+## Tech Stack
+
+- **Frontend**: HTML, CSS, JavaScript  
+- **Backend**: SQL (MySQL), Google APIs (OAuth, Gmail API)  
+- **Database**: Relational schema with foreign key constraints and indexing
+
+## Database Schema
+
+- `User`: Stores user credentials, profile info, and admin status
+- `Event`: Contains metadata about each event (date, time, location, etc.)
+- `Guestlist`: Links guests to events, tracks availability and attendance
+- `Hostlist`: Links hosts to events, enforcing event ownership
+
+Example table structure (see `tables.sql` for full schema):
+
+```sql
+CREATE TABLE User (
+  user_id INT AUTO_INCREMENT PRIMARY KEY,
+  first_name VARCHAR(100),
+  last_name VARCHAR(100),
+  username VARCHAR(50) UNIQUE,
+  user_password VARCHAR(10),
+  email VARCHAR(100),
+  isAdmin TINYINT
+);
+
+```
