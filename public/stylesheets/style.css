@@ -1,0 +1,780 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+
+.login-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-box {
+  width: 440px;
+  height: 480px;
+  display: grid;
+  grid-template-areas:
+  'signInText'
+  'inputBox'
+  'signInFooter';
+  grid-template-columns: 1fr;
+  grid-template-rows: 70px 180px 150px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 1.5em;
+}
+
+.text {
+  grid-area: signInText;
+  text-align: center;
+  font-weight: 300;
+  color: #444;
+  font-size: 35px;
+  margin-bottom: 1em;
+}
+
+.inputBoxes {
+  display: flex;
+  flex-direction: column;
+  grid-area: inputBox;
+  margin-top: 1em;
+}
+
+.text2 {
+  grid-area: signInFooter;
+}
+
+.signIn {
+  padding: 10px 32px;
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  background: #15CD72;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 4px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-text {
+  text-align: center;
+  font-weight: 300;
+  color: #444;
+  font-size: 20px;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.centered {
+  text-align: center;
+}
+
+.flex-around {
+  display: flex;
+  justify-content: space-between;
+}
+
+.the-main-body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  height: 100vh;
+  width: 100%;
+
+  display: grid;
+  grid-template-areas:
+  'nav mybutton'
+  'nav mycontent'
+  'nav mycontent2';
+
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 60px 1fr 1fr;
+}
+
+.the-main-body2 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  height: 100vh;
+  width: 100%;
+
+  display: grid;
+  grid-template-areas:
+  'nav mybutton'
+  'nav mycontent';
+
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 50px 1fr;
+}
+
+.the-main-body4 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  height: 100vh;
+  width: 100%;
+
+  display: grid;
+  grid-template-areas:
+  'nav mycontent'
+  'nav mycontent2';
+
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.div1,
+.div2,
+.mybuttoncontainer,
+nav {
+  /* background-color: #bec4c5; */
+  /* background-color: black; */
+  color: black;
+  padding: 0;
+  background: azure;
+}
+
+
+nav {
+  grid-area: nav;
+}
+
+
+.mysidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  background-color: #000;
+  height: 100%;
+}
+
+
+.header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+.left-padding-2 {
+  padding-left: 2em;
+}
+
+
+#web-title {
+  color: white;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 2em;
+  background: teal;
+  align-self: stretch;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.side-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.profile-picture-container {
+  width: 110px;
+  height: 110px;
+  background-color: orange;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+}
+
+
+.side-item {
+  border-top: 1px solid grey;
+  align-self: stretch;
+  height: 4.5em;
+  text-align: center;
+  text-decoration: none;
+  padding-top: 1.5em;
+  color: white;
+}
+
+
+.side-item:hover {
+  background: white;
+  text-decoration: none;
+  color: #000;
+}
+
+
+.mybuttoncontainer {
+  grid-area: mybutton;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 1em 0 2em;
+  flex-direction: column;
+}
+
+
+#logout-button {
+  cursor: pointer;
+}
+
+
+.createEventButton {
+  border-radius: 0.5em;
+  /* margin-top: 0.5em; */
+  background-color: #0d63fd;
+  color: white;
+  border: none;
+  width: 120px;
+  height: 40px;
+}
+
+
+.div1 {
+  grid-area: mycontent;
+}
+
+
+.div2 {
+  grid-area: mycontent2;
+}
+
+
+.event-flex-container {
+  background-color: teal;
+  border-radius: 20px;
+  box-shadow: 5px 5px 15px rgb(0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-right: 50px;
+  border: black 1px solid;
+  flex-wrap: wrap;
+  padding: 1em;
+  margin-bottom: 3em;
+  /* margin-top: 3em; */
+}
+
+
+.flex-item {
+  flex-basis: 18%;
+  height: 15em;
+  margin: 20px 10px;
+  text-align: center;
+
+  display: grid;
+  grid-template-areas:
+  'title'
+  'text'
+  'stats';
+  grid-template-columns: 1fr;
+  grid-template-rows: 50px 140px 50px;
+
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 3px 3px 10px rgb(0, 0, 0);
+  text-align: center;
+}
+
+.my-card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2px;
+}
+
+.my-card-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-area: title;
+  color: #000;
+  font-size: 1.1em;
+  font-weight: 700;
+  /* padding: 5px; */
+}
+
+.my-card-text {
+  grid-area: text;
+  color: #000;
+  /* padding: 2px; */
+  /* border: 1px black solid; */
+}
+
+.my-card-stats {
+  color: white;
+  grid-area: stats;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  background: skyblue;
+}
+
+.my-card-value {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.my-card-type {
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+
+@media(max-width: 768px) {
+  .event-flex-container {
+      flex-direction: column;
+  }
+}
+
+
+.title {
+  font-size: 1.5em;
+   font-weight:bold;
+}
+
+
+/* .reminder-div {
+  display: flex;
+  width: 95%;
+  /* height: 3.5em; */
+  background: white;
+  color: black;
+  margin: 20px;
+  padding: 15px;
+  border: black 1px solid;
+} */
+
+.calendar {
+  display: flex;
+  width: 95%;
+  height: 65%;
+  background: white;
+  color: black;
+  margin: 20px;
+  padding: 15px;
+  border: black 1px solid;
+}
+
+/* PROFILE */
+
+
+.profile {
+  margin:auto;
+  padding-top:16em;
+}
+
+.row {
+  margin:0.5em;
+  flex-wrap:nowrap !important;
+
+}
+
+.col-8 {
+  position:relative;
+  top:22px;
+}
+
+.intext{
+  margin-top:0em;
+  padding:5px;
+  margin-bottom:1em;
+  width: 100%;
+}
+
+#profile-labels {
+  text-align:center;
+  color:grey;
+}
+
+/* #imageUpload
+{
+  display: none;
+} */
+
+/* #profileImage
+{
+  cursor: pointer;
+} */
+
+/* #profile-container {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin:auto;
+  border-style:solid;
+  border-width:2px;
+  margin-right:10.5em;
+  margin-bottom:2em;
+
+} */
+
+/* #profile-container img {
+  width: 150px;
+  height: 150px;
+} */
+
+.sve-btn {
+  border:none;
+  background:none;
+  width:50%;
+  /* width:30%; */
+}
+
+
+
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: table;
+  transition: opacity 0.3s ease;
+}
+
+.modal-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.modal-container {
+  width: 500px;
+  margin: 0px auto;
+  /*padding: 10px 10px;*/
+  /*padding-bottom: 20px;*/
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+  transition: all 0.3s ease;
+  background-color: #f0f0f0;
+}
+
+.modal-default-button {
+  float: right;
+}
+
+.event-modal {
+    width: 1150px;
+    /*min-width: 500px;*/
+    padding: 4px 4px;
+    background-color: #f0f0f0;
+}
+
+.modal-body {
+    padding: 0 !important;
+}
+.event-modal .label {
+    display: block;
+    padding-top: 10px; /* uniform spacing of 10px between each */
+}
+
+.event-modal .input {
+    width: 400px;
+}
+
+.event-modal .input input{
+    width: 100%;
+}
+
+.modal-form {
+    width: 100%;
+    /*background-color: transparent;*/
+}
+.modal-label {
+    display: block;
+}
+
+.modal-bar {
+    /*height: 20px;*/
+    display: flex;
+    justify-content: flex-end;
+    background-color: #e0e0e0;
+}
+.modal-mini-close {
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: none;
+  margin-top: -4px;
+}
+
+
+.flex-item-2 {
+  height: 15em;
+  margin: 20px 10px;
+  text-align: center;
+
+  display: grid;
+  grid-template-areas:
+  'flexItem desc buttons';
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 2fr;
+
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 3px 3px 10px rgb(0, 0, 0);
+  text-align: center;
+}
+
+
+.flex-item-start {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 15em;
+  margin: 20px 10px;
+  text-align: center;
+
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 3px 3px 10px rgb(0, 0, 0);
+  text-align: center;
+}
+
+.flex-item-3 {
+  grid-area: flexItem;
+  flex-basis: 18%;
+  height: 15em;
+  text-align: center;
+
+  display: grid;
+  grid-template-areas:
+  'title'
+  'text'
+  'stats';
+  grid-template-columns: 1fr;
+  grid-template-rows: 50px 140px 50px;
+
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  border-radius: 18px;
+  background: white;
+  /* box-shadow: 3px 3px 10px rgb(0, 0, 0); */
+  text-align: center;
+}
+
+
+.event-flex-container-2 {
+  background-color: teal;
+  border-radius: 20px;
+  box-shadow: 5px 5px 15px rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
+  border: black 1px solid;
+  flex-wrap: wrap;
+  padding: 1em;
+  margin-bottom: 3em;
+  /* min-height: 392px; */
+}
+
+
+.no-bottom-right-radius {
+  border-bottom-right-radius: 0;
+}
+
+
+.event-description {
+  display: flex;
+  align-items: center;
+  border-right: 2px solid gray;
+  border-left: 2px solid gray;
+}
+
+
+.event-buttons {
+  grid-area: buttons;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+
+.edit-button {
+  width: 5em;
+  background-color: #0d6efd;
+  border-radius: 5px;
+  border: none;
+  color: white;
+}
+
+.indicator-buttons-container {
+  width: 11em;
+  display: flex;
+  justify-content: space-around;
+}
+
+.notgoing-button,
+.going-button {
+  width: 5em;
+  border: none;
+  background-color: black;
+  color: white;
+}
+
+
+.create-event-mode {
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+/* USERS TAB */
+
+.friends-container {
+  padding-top: 1em;
+  display: flex;
+  flex-direction: column;
+  background: azure;
+}
+
+.profile-picture-container {
+  width: 110px;
+  height: 110px;
+  background-color: orange;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+}
+.friends-item {
+  height: 9em;
+  background: teal;
+  margin: 1.5em;
+  display: grid;
+  grid-template-areas: 'picture' 'info';
+  grid-template-columns: 1fr 6fr 3fr;
+  grid-template-rows: 1fr;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px rgb(0, 0, 0);
+}
+
+.friends-picture {
+  padding-left: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rounded-picture {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background-color: orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  color: white;
+}
+
+.friends-info {
+  color: white;
+  padding: 1em;
+}
+
+.rounded-picture a {
+  text-decoration: none;
+}
+.initials {
+  text-decoration: none;
+  font-size: 1.2em;
+  color: white;
+}
+/* FORGOT PASSWORD */
+.e-container {
+  height: calc(100vh);
+  display:flex;
+  justify-content:center;
+  align-items: center;
+}
+
+.enter-email {
+  width: 400px;
+  padding: 10px;
+}
+
+.enter-password {
+  width: 200px;
+  padding: 10px;
+}
+
+
+.g_id_signin {
+  width: 203px;
+  margin: auto;
+}
+
+/* For calendar */
+.the-main-body3 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  height: 100vh;
+  width: 100%;
+  background: azure;
+
+  display: grid;
+  grid-template-areas:
+  'nav mybutton'
+  'nav mycontentcalendar'
+  'nav mycontent2calendar';
+
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 115px 1fr;
+}
+
+
+.reminder-div {
+  grid-area: mybutton;
+  font-size: 20px;
+  display: flex;
+  width: 95%;
+  height: 3.5em;
+  background: white;
+  color: black;
+  margin: 20px;
+  padding: 15px;
+  border: black 1px solid;
+}
+
+.calendar {
+  grid-area: mycontentcalendar;
+  display: flex;
+  width: 95%;
+  height: 100%;
+  padding: 0px;
+  background: white;
+  color: black;
+  margin: 0px 20px;
+  justify-content: center;
+}
+
+.vuecal__event-title {
+  font-size: 90%;
+  font-weight: bold;
+  margin: 2px 0 1px;
+}

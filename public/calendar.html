@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- javascripts, css and icon -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <script src="https://kit.fontawesome.com/406564b234.js" crossorigin="anonymous"></script>
+    <script src="javascripts/calendar.js" defer></script>
+    <script src="javascripts/page.js" defer></script>
+    <script src="https://unpkg.com/vue"></script> <!-- For vue cal -->
+    <script src="https://unpkg.com/vue-cal"></script>
+    <link href="https://unpkg.com/vue-cal/dist/vuecal.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+ <div class="the-main-body3">
+    <nav id="app">
+        <div class="mysidebar nav">
+            <div id="web-title">UOA MeetUp</div>
+            <div class="side-profile">
+                <div class="profile-picture-container"><p style="font-size: 1.5em">{{ profile.username }}</p></div>
+                <br/>
+                <div>{{ profile.name }} {{ profile.lastname }}</div>
+                <div>{{ profile.email }}</div>
+            </div>
+            <br>
+
+            <a href="mainpage.html" class="side-item">
+              Home
+              <i class="fa-solid fa-house"></i>
+          </a>
+
+          <a href="profile.html" class="side-item">
+              Profile
+              <i class="fa-solid fa-address-card"></i>
+          </a>
+
+          <a href="calendar.html" class="side-item">
+              Calendar
+              <i class="fa-solid fa-calendar-days"></i>
+          </a>
+
+          <a href="events.html" class="side-item">
+              Events
+              <i class="fa-solid fa-calendar-plus"></i>
+          </a>
+
+          <a href="users.html" class="side-item" v-if="profile.isAdmin">
+              Users
+              <i class="fa-solid fa-users"></i>
+          </a>
+
+          <a href="logout.html" class="side-item">
+              Logout
+              <i id="logout-button" class="fa-solid fa-right-from-bracket"></i>
+          </a>
+      </div>
+    </nav>
+
+    <div class="reminder-div">
+        <ul>
+            Calendar is view only. If you want to manage or create events, go to the <a href='events.html'>Events</a> tab</li>
+        </ul>
+    </div>
+    <div class="calendar" id="cal">
+        <vue-cal class="vuecal--blue-theme"
+            :events="events"
+            events-count-on-year-view="events-count-on-year-view" events-on-month-view="short"
+            :disable-views="['years']">
+    </vue-cal>
+    </div>
+
+</body>
+</div>
+</html>

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <!--script src="https://unpkg.com/vuejs-datepicker"></script-->
+
+    <!-- javascripts, css and icon -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <script src="https://kit.fontawesome.com/406564b234.js" crossorigin="anonymous"></script>
+    <script src="javascripts/page.js" defer></script>
+</head>
+<body">
+    <div class="the-main-body" id="app" v-bind:class="{'create-event-mode': createEventMode}">
+      <nav>
+        <div class="mysidebar nav">
+            <div id="web-title">UOA MeetUp</div>
+            <div class="side-profile">
+                <div class="profile-picture-container"><p style="font-size: 1.5em">{{ profile.username }}</p></div>
+                <br/>
+                <div>{{ profile.name }} {{ profile.lastname }}</div>
+                <div>{{ profile.email }}</div>
+            </div>
+            <br>
+
+            <a href="mainpage.html" class="side-item">
+              Home
+              <i class="fa-solid fa-house"></i>
+          </a>
+
+          <a href="profile.html" class="side-item">
+              Profile
+              <i class="fa-solid fa-address-card"></i>
+          </a>
+
+          <a href="calendar.html" class="side-item">
+              Calendar
+              <i class="fa-solid fa-calendar-days"></i>
+          </a>
+
+          <a href="events.html" class="side-item">
+              Events
+              <i class="fa-solid fa-calendar-plus"></i>
+          </a>
+
+          <a href="users.html" class="side-item" v-if="profile.isAdmin">
+              Users
+              <i class="fa-solid fa-users"></i>
+          </a>
+
+          <a href="logout.html" class="side-item">
+              Logout
+              <i id="logout-button" class="fa-solid fa-right-from-bracket"></i>
+          </a>
+      </div>
+    </nav>
+    <div class="mybuttoncontainer left-padding-2">
+        <button type="button" class="createEventButton" v-on:click="createEventMode=true">Create Event</button>
+
+        <div class="create-event-container" v-if="createEventMode">
+          <div class="event-modal">
+            <div class="modal-bar"><button class="modal-mini-close" v-on:click="createEventMode=false">x</button></div>
+            <div class="modal-form">
+              <span class="label">Event name:</span>
+              <span class="input"><input type="text" v-model="eventName"/></span>
+              <span class="label">Date:</span>
+              <span class="input">
+                  <select v-model="eventMonth">
+                      <option value="" disabled selected>Month</option>
+                      <option>Jan</option>
+                      <option>Feb</option>
+                      <option>Mar</option>
+                      <option>Apr</option>
+                      <option>May</option>
+                      <option>Jun</option>
+                      <option>Jul</option>
+                      <option>Aug</option>
+                      <option>Sep</option>
+                      <option>Oct</option>
+                      <option>Nov</option>
+                      <option>Dec</option>
+                  </select>
+                  <select v-model="eventDay">
+                      <option value="" disabled selected>Day</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                      <option>10</option>
+                      <option>11</option>
+                      <option>12</option>
+                      <option>13</option>
+                      <option>14</option>
+                      <option>15</option>
+                      <option>16</option>
+                      <option>17</option>
+                      <option>18</option>
+                      <option>19</option>
+                      <option>20</option>
+                      <option>21</option>
+                      <option>22</option>
+                      <option>23</option>
+                      <option>24</option>
+                      <option>25</option>
+                      <option>26</option>
+                      <option>27</option>
+                      <option>28</option>
+                      <option>29</option>
+                      <option>30</option>
+                      <option>31</option>
+                  </select>
+                  <select v-model="eventYear">
+                      <option value="" disabled selected>Year</option>
+                      <option>2022</option>
+                      <option>2023</option>
+                      <option>2024</option>
+                      <option>2025</option>
+                      <option>2026</option>
+                      <option>2027</option>
+                      <option>2028</option>
+                      <option>2029</option>
+                      <option>2030</option>
+                  </select>
+              </span>
+
+              <span class="label">Start Time:</span>
+              <span class="input">
+                <select v-model="eventStartTimeHour">
+                  <option value="" disabled selected>Hour</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+                </select>
+
+                <select v-model="eventStartTimeMinute">
+                  <option value="" disabled selected>Minute</option>
+                  <option>00</option>
+                  <option>15</option>
+                  <option>30</option>
+                  <option>45</option>
+                </select>
+
+                <select v-model="eventStartTimePeriod">
+                  <option value="" disabled selected>Period</option>
+                  <option>AM</option>
+                  <option>PM</option>
+                </select>
+              </span>
+
+
+
+
+              <span class="label">End Time:</span>
+              <span class="input">
+                <select v-model="eventEndTimeHour">
+                  <option value="" disabled selected>Hour</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+                </select>
+
+                <select v-model="eventEndTimeMinute">
+                  <option value="" disabled selected>Minute</option>
+                  <option>00</option>
+                  <option>15</option>
+                  <option>30</option>
+                  <option>45</option>
+                </select>
+
+                <select v-model="eventEndTimePeriod">
+                  <option value="" disabled selected>Period</option>
+                  <option>AM</option>
+                  <option>PM</option>
+                </select>
+              </span>
+
+              <span class="label">People:</span>
+              <span class="input">
+                <button type="button" class="createEventButton" v-on:click="eventAddPeople()" >Add People</button>
+              </span>
+              <div v-if="addPeopleMode" id="usersBox">
+                <div v-for="user in updatedUserList" >
+                  <input type="checkbox">{{user.first_name}} {{user.last_name}}<br>
+                </div>
+              </div>
+              <div>
+                <button type="button" class="createEventButton" v-if="addPeopleMode" v-on:click="backendAddPeople">Done</button>
+              </div>
+
+              <span class="label">Address 1:</span>
+              <span class="input"><input type="text" v-model="eventAddress"/></span>
+              <span class="label">Address 2:</span>
+              <span class="input"><input type="text" v-model="eventAddress2"/></span>
+              <span class="label">City</span>
+              <span class="input"><input type="text" v-model="eventAddressCity"/></span>
+
+              <span class="label">Description:</span>
+              <span class="input">
+                <textarea type="text" v-model="eventDescription" rows="4" cols="140"></textarea>
+              </span>
+            </div>
+          </div>
+
+          <button v-on:click="confirmEvent()" class="createEventButton">Confirm</button>
+
+        </div>
+    </div>
+    <div class="div1 left-padding-2">
+      <br>
+        <p class="title">My Events</p>
+        <div class="event-flex-container-2">
+
+
+          <div class="flex-item-start" v-if="myEventsIsEmpty">
+            <div>Events that you are hosting will appear here</div>
+          </div>
+
+
+          <div class="flex-item-2" v-for="item in myEventsList">
+            <div class="flex-item-3">
+              <div class="my-card-title">{{item.event_name}}</div>
+              <div class="my-card-text">
+                <div class="my-card-container">
+                    <p>Host: {{item.username}}</p>
+                    <p>Time: {{item.event_starttime}}-{{item.event_endtime}}</p>
+                    <p>Location: {{item.address_1}}, {{item.address_2}}, {{item.address_3}}</p>
+                </div>
+              </div>
+
+              <div class="my-card-stats no-bottom-right-radius">
+                <div class="my-card-stat">
+                  <div class="my-card-value">Going</div>
+                  <div class="my-card-type">status</div>
+                </div>
+
+                <div class="my-card-stat">
+                  <div class="my-card-value">42</div>
+                  <div class="my-card-type">going</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="event-description">
+              <div>
+                {{item.event_description}}
+              </div>
+            </div>
+
+            <div class="event-buttons">
+              <div >
+                Guests Preferred Time
+                <!-- <span  >{{item.guestlist}}</span> -->
+                  <div v-for="guest in item.guestlist">
+                  <span v-bind:class="item.guestlist.length">
+                      {{guest.first_name}} {{guest.last_name}}:
+                      {{formatTime(guest.available_time)}}
+                    </span></div>
+                <br>
+                <button class="edit-button" @click="sendEmailToEventGuests(item.event_id)" title="Test send event emils" onclick="handleAuthClick()">Send Emails</button>
+                <button class="edit-button">Edit Time</button>
+                <!-- <button class="edit-button" id="authorize_button" onclick="handleAuthClick()">Add to google calendar</button> -->
+              </div>
+              <div class="indicator-buttons-container">
+                <button  class="going-button active-button" v-on:click="isGoing=true" v-bind:style="{'background-color' : goingBackground}">Going</button>
+                <button  class="notgoing-button" v-on:click="isGoing=false" v-bind:style="{'background-color' : notGoingBackground}">Not Going</button>
+              </div>
+            </div>
+        </div>
+
+
+
+
+        </div>
+
+
+        </div>
+        <!-- <p>stop here</p> -->
+
+    <div class="div2 left-padding-2">
+        <p class="title">Invited Events</p>
+        <div class="event-flex-container-2">
+          <div class="flex-item-start" v-if="invitedEventsIsEmpty">
+            <div>Events that you are invited to will appear here</div>
+          </div>
+            <div class="flex-item-2" v-for="item in invitedEventsList">
+              <div class="flex-item-3">
+                <div class="my-card-title">{{item.event_name}}</div>
+                <div class="my-card-text">
+                  <div class="my-card-container">
+                      <p>Host: {{item.username}}</p>
+                      <p>Time: {{item.event_starttime}}-{{item.event_endtime}}</p>
+                      <p>Location: {{item.address_1}}, {{item.address_2}}, {{item.address_3}}</p>
+                  </div>
+                </div>
+
+                <div class="my-card-stats no-bottom-right-radius">
+                  <div class="my-card-stat">
+                    <div class="my-card-value">Going</div>
+                    <div class="my-card-type">status</div>
+                  </div>
+
+                  <div class="my-card-stat">
+                    <div class="my-card-value">42</div>
+                    <div class="my-card-type">going</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="event-description">
+                <div>
+                  {{item.event_description}}
+                </div>
+              </div>
+
+              <div class="event-buttons">
+                <div>
+                  Preferred Time
+                  <div v-if="!item.editing"> <span  >{{formatTime(item.available_time)}}</span></div>
+
+                  <button v-show="!item.editing" type="button" class="edit-button" @click="editTime(item)">Edit Time</button>
+
+                  <div v-if="item.editing">
+                  <span class="input">
+                    <select v-model="item.timeParts.h">
+                      <option value="" disabled selected>Hour</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                      <option>10</option>
+                      <option>11</option>
+                      <option>12</option>
+                    </select>
+
+                    <select v-model="item.timeParts.m">
+                      <option value="" disabled selected>Min</option>
+                      <option value="0">00</option>
+                      <option>15</option>
+                      <option>30</option>
+                      <option>45</option>
+                    </select>
+
+                    <select v-model="item.timeParts.p">
+                      <option value="" disabled selected></option>
+                      <option>AM</option>
+                      <option>PM</option>
+                    </select>
+                  </span></div>
+              <button v-show="item.editing" type="button" class="edit-button" @click="saveTime(item)">Save Time</button>
+
+                </div>
+                <div class="indicator-buttons-container">
+                  <button  class="going-button active-button" v-on:click="isGoing=true" v-bind:style="{'background-color' : goingBackground}">Going</button>
+                  <button  class="notgoing-button" v-on:click="isGoing=false" v-bind:style="{'background-color' : notGoingBackground}">Not Going</button>
+                </div>
+              </div>
+
+          </div>
+
+
+
+
+      </div>
+
+    </div>
+
+</div>
+<script src="javascripts/gevents.js"></script>
+<script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
+<script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
+</body>
+</html>
